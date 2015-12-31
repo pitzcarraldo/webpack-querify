@@ -23,7 +23,7 @@ var $q = require('webpack-querify');
 {
   test: /\.scss$/,
   loader : $q({
-    style: '',
+    style: {},
     css: {
       modules: true,
       sourceMap: true,
@@ -40,4 +40,28 @@ var $q = require('webpack-querify');
   })
 }
 ...
+```
+
+### There is `loaders`, why this?
+
+Some Webpack plugins like `ExtractTextPlugin` only recieve loader configuration by string. Webpack Querify can be used in that case like below.
+```js
+ExtractTextPlugin.extract(
+  'style',
+  $q({
+    'css': {
+      modules: true,
+      importLoaders: 2,
+      sourceMap: true
+    },
+    'sass': {
+      outputStyle: 'expanded',
+      sourceMap: true,
+      sourceMapContents: true
+    },
+    'autoprefixer': {
+      browsers: 'last 4 version'
+    }
+  })
+)
 ```
