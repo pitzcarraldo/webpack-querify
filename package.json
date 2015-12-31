@@ -1,0 +1,66 @@
+{
+  "name": "webpack-querify",
+  "version": "0.0.1",
+  "description": "Querify the Webpack Loader Configurations",
+  "main": "lib/index.js",
+  "jsnext:main": "src/index.js",
+  "files": [
+    "dist",
+    "lib",
+    "src"
+  ],
+  "npmName": "webpack-querify",
+  "scripts": {
+    "clean": "rimraf lib dist coverage",
+    "lint": "eslint src test",
+    "test": "mocha --compilers js:babel/register --recursive",
+    "test:karma": "./node_modules/karma/bin/karma start karma.conf.js",
+    "test:watch": "./node_modules/karma/bin/karma start karma.conf.js --auto-watch --no-single-run",
+    "check": "npm run lint && npm run test",
+    "build:lib": "babel src --out-dir lib --source-maps",
+    "build:umd": "webpack src/index.js dist/querify.js --config webpack/webpack.config.development.js",
+    "build:umd:min": "webpack src/index.js dist/querify.min.js --config webpack/webpack.config.production.js",
+    "build": "npm run build:lib && npm run build:umd && npm run build:umd:min",
+    "preversion": "npm run clean && npm run check",
+    "version": "npm run build",
+    "postversion": "git push && git push --tags && npm run clean",
+    "prepublish": "npm run clean && npm run build"
+  },
+  "author": "Minkyu Cho <mrnoname@naver.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pitzcarraldo/webpack-querify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pitzcarraldo/webpack-querify/issues"
+  },
+  "keywords": [
+    "webpack-querify"
+  ],
+  "devDependencies": {
+    "babel": "^5.5.8",
+    "babel-core": "^5.6.18",
+    "babel-eslint": "^4.1.0",
+    "babel-loader": "^5.1.4",
+    "es5-shim": "^4.3.1",
+    "eslint": "^1.7.1",
+    "eslint-config-rackt": "^1.1.1",
+    "eslint-plugin-react": "^3.6.3",
+    "expect": "^1.8.0",
+    "isparta": "^3.0.3",
+    "karma": "^0.13.15",
+    "karma-mocha": "^0.2.1",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-sourcemap-loader": "^0.3.6",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.2.5",
+    "phantomjs": "^1.9.19",
+    "rimraf": "^2.3.4",
+    "webpack": "^1.9.6"
+  },
+  "devEngines": {
+    "node": "4.x || 5.x",
+    "npm": "2.x || 3.x"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "webpack-querify",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Minkyu Cho <mrnoname@naver.com>",
+  "private": false,
+  "main": [
+    "dist/webpack-querify.js",
+    "dist/webpack-querify.min.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "spec",
+    "test",
+    "tests"
+  ],
+  "moduleType": [
+    "globals"
+  ]
+}
