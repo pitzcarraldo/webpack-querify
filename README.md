@@ -49,17 +49,17 @@ Some Webpack plugins like `ExtractTextPlugin` only recieve loader configuration 
 ExtractTextPlugin.extract(
   'style',
   $q({
-    'css': {
+    css: {
       modules: true,
       importLoaders: 2,
       sourceMap: true
     },
-    'sass': {
+    sass: {
       outputStyle: 'expanded',
       sourceMap: true,
       sourceMapContents: true
     },
-    'autoprefixer': {
+    autoprefixer: {
       browsers: 'last 4 version'
     }
   })
