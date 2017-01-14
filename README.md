@@ -8,6 +8,8 @@
 
 Querify the Webpack Loader Configurations
 
+## This repository no more maintained. Please checkout [webpack-combine-loaders](https://github.com/jsdf/webpack-combine-loaders).
+
 ## Make Webpack Loader Configuration Clear
 
 ### Legacy Webpack Loader Configurations
